@@ -19,7 +19,7 @@ diff_drive_controller:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.18   # [GANTI] samakan dengan WHEELBASE hasil ukur kamu
+    wheel_separation: 0.169   # [GANTI] samakan dengan WHEELBASE hasil ukur kamu
     wheel_radius: 0.025       # [GANTI] = WHEEL_DIAMETER hasil ukur / 2
 
     odom_frame_id: odom
