@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50  # Hz - samakan dengan loop PID Arduino (20ms = 50Hz)
+    update_rate: 50 # Hz - samakan dengan loop PID Arduino (20ms = 50Hz)
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -13,21 +13,22 @@ joint_state_broadcaster:
     joints:
       - left_wheel_joint
       - right_wheel_joint
-      
+
 diff_drive_controller:
   ros__parameters:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.17   # [GANTI] samakan dengan WHEELBASE hasil ukur kamu
-    wheel_radius: 0.025       # [GANTI] = WHEEL_DIAMETER hasil ukur / 2
+    wheel_separation: 0.17 # [GANTI] samakan dengan WHEELBASE hasil ukur kamu
+    wheel_radius: 0.025 # [GANTI] = WHEEL_DIAMETER hasil ukur / 2
 
     odom_frame_id: odom
     base_frame_id: base_footprint
     publish_rate: 50.0
     cmd_vel_in: "/cmd_vel"
-    use_stamped_vel: false
-    cmd_vel_timeout: 0.5      # selaras dengan CMD_TIMEOUT_MS di Arduino (500ms)
+    use_stamped_vel: true
+    cmd_vel_timeout: 0.5 # selaras dengan CMD_TIMEOUT_MS di Arduino (500ms)
+    enable_odom_tf: false   # <--- TAMBAHKAN INI AGAR TIDAK TABRAKAN DENGAN EKF!
 
     linear.x.max_velocity: 0.3
     linear.x.min_velocity: -0.3
